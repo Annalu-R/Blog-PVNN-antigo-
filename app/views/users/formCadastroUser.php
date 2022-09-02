@@ -8,14 +8,20 @@
 </head>
 <body>
 
-<h2>Cadastro de clientes</h2>
+<h2>Cadastro de usuários</h2>
 <p/>
-<form action="./ClienteController.php?action=create" method="POST">
+<form action="./UserController.php?action=create" method="POST">
 	Nome: <input type="text" name="nome">
 	<br>
 	Telefone: <input type="text" name="telefone">
 	<br>
 	Email: <input type="text" name="email">
+	<p/>
+	Data de nascimento: <input type="text" name="data de nascimento">
+	<p/>
+	Username: <input type="text" name="username">
+	<p/>
+	Senha: <input type="text" name="senha">
 	<p/>
 	<input type="submit" value="Cadastrar">
 	<input type="reset" value="Limpar">
