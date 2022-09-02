@@ -4,11 +4,11 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require_once __DIR__ . "/../repository/ClienteRepository.php";
+require_once __DIR__ . "/../repository/UserRepository.php";
 
-$ccliente = new ControllerCliente();
+$cUsuario = new UserController();
 
-class ControllerCliente{
+class UserController{
 
 	function __construct(){
 		
@@ -54,17 +54,17 @@ class ControllerCliente{
 
     private function create(){
         
-        $cliente = new ClienteModel();
-        // $cliente->setNome("aaa");
-        // $cliente->setTelefone("123213");
-        // $cliente->setEmail("asd@asd");
+        $cUsuario = new UserModel();
+        // $user->setNome("aaa");
+        // $user->setTelefone("123213");
+        // $user->setEmail("asd@asd");
 
-		$cliente->setNome($_POST["nome"]);
-		$cliente->setTelefone($_POST["telefone"]);
-		$cliente->setEmail($_POST["email"]);
+		$user->setNome($_POST["nome"]);
+		$user->setTelefone($_POST["telefone"]);
+		$user->setEmail($_POST["email"]);
 
-        $clienteRepository = new ClienteRepository();
-        $id = $clienteRepository->create($cliente);
+        $userRepository = new UserRepository();
+        $id = $userRepository->create($user);
 
         if($id){
 			$msg = "Registro inserido com sucesso.";
@@ -76,37 +76,37 @@ class ControllerCliente{
     }
 
     private function loadFormNew(){
-        $this->loadView("clientes/formCadastroCliente.php", null,"teste");
+        $this->loadView("usuarios/formCadastroUsuario.php", null,"teste");
     }    
 
     private function findAll(string $msg = null){
         
-        $clienteRepository = new ClienteRepository();
+        $userRepository = new UserRepository();
 
-        $clientes = $clienteRepository->findAll();
+        $user = $userRepository->findAll();
 
-        $data['titulo'] = "listar clientes";
-        $data['clientes'] = $clientes;
+        $data['titulo'] = "listar usuários";
+        $data['user'] = $user;
 
-        $this->loadView("clientes/list.php", $data, $msg);
+        $this->loadView("usuarios/list.php", $data, $msg);
     }
 
-    private function findClienteById(){
+    private function findUserById(){
         $idParam = $_GET['id'];
 
-        $clienteRepository = new ClienteRepository();
-        $cliente = $clienteRepository->findClienteById($idParam);
+        $userRepository = new UserRepository();
+        $user = $userRepository->findUserById($idParam);
 
         print "<pre>";
-        print_r($cliente);
+        print_r($user);
         print "</pre>";
     }
 
-    private function deleteClienteById(){
+    private function deleteUserById(){
         $idParam = $_GET['id'];
-        $clienteRepository = new ClienteRepository();    
+        $userRepository = new UserRepository();    
 
-        $qt = $clienteRepository->deleteById($idParam);
+        $qt = $userRepository->deleteById($idParam);
         if($qt){
 			$msg = "Registro excluído com sucesso.";
 		}else{
@@ -117,24 +117,24 @@ class ControllerCliente{
 
     private function edit(){
         $idParam = $_GET['id'];
-        $clienteRepository = new ClienteRepository(); 
-        $cliente = $clienteRepository->findClienteById($idParam);
-        $data['cliente'] = $cliente;
+        $userRepository = new UserRepository(); 
+        $user = $userRepository->findUserById($idParam);
+        $data['user'] = $user;
 
-        $this->loadView("clientes/formEditaCliente.php", $data);
+        $this->loadView("usuarios/formEditaUser.php", $data);
     }
 
     private function update(){
-        $cliente = new ClienteModel();
+        $user = new UserModel();
 
-		$cliente->setId($_GET["id"]);
-		$cliente->setNome($_POST["nome"]);
-		$cliente->setTelefone($_POST["telefone"]);
-		$cliente->setEmail($_POST["email"]);
+		$user->setId($_GET["id"]);
+		$user->setNome($_POST["nome"]);
+		$user->setTelefone($_POST["telefone"]);
+		$user->setEmail($_POST["email"]);
 
-        $clienteRepository = new ClienteRepository();
-        //print_r($cliente);
-        $atualizou = $clienteRepository->update($cliente);
+        $userRepository = new UserRepository();
+        //print_r($user);
+        $atualizou = $userRepository->update($user);
         
         if($atualizou){
 			$msg = "Registro atualizado com sucesso.";
