@@ -30,7 +30,7 @@
 		Username: <input type="text" name="username" value="<?= $user->getUsername(); ?>">
 		<br>
 		
-		Data de nascimento: <input type="text" name="data de nascimento" value="<?= $user->getUsername(); ?>">
+		Data de nascimento: <input type="text" name="data de nascimento" value="<?= $user->getDtNasc(); ?>">
 		<br>
 		
 		Senha: <input type="text" name="senha" value="<?= $user->getSenha(); ?>">
