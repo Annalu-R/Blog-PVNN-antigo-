@@ -1,7 +1,7 @@
 @CHARSET "utf-8";
 
 html{
-	background: #eeeeee;
+	background: #F7F1FF;
 }
 
 #mensagem{
@@ -10,7 +10,7 @@ html{
 	margin-bottom: 0px;
 	text-align: center;
 	font-family: sans-serif;
-	color: #FF0000;
+	color: #060327;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -23,7 +23,7 @@ html{
 	font-family: sans-serif;
 	margin-left: auto;
 	margin-right: auto;
-	border: 1px solid #cccccc;
+	border: 1px solid #664997;
 }
 
 #menu{
@@ -33,7 +33,7 @@ html{
 	padding: 20px;
 	margin-top: 10px;
 	margin-bottom: -10px;
-	border: 1px solid #cccccc;
+	border: 1px solid #D0B7F0;
 	float: left;
 	text-align: center;
 }
@@ -44,7 +44,7 @@ html{
 	padding: 20px;
 	margin-top: 10px;
 	margin-bottom: -10px;
-	border: 1px solid #cccccc;
+	border: 1px solid #FBDC76;
 }
 
 #rodape{
@@ -56,7 +56,7 @@ html{
 	font-family: sans-serif;
 	margin-left: auto;
 	margin-right: auto;
-	border: 1px solid #cccccc;
+	border: 1px solid #060327;
 }
 
 table.consulta {
@@ -72,7 +72,7 @@ table.consulta th {
 	border-width: 1px;
 	padding: 5px;
 	border-style: inset;
-	background-color: #cccccc;
+	background-color: #B3B3B3;
 }
 
 table.consulta td {

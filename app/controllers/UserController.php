@@ -62,6 +62,10 @@ class UserController{
 		$user->setNome($_POST["nome"]);
 		$user->setTelefone($_POST["telefone"]);
 		$user->setEmail($_POST["email"]);
+        $user->setSenha($_POST["senha"]);
+        $user->setUsername($_POST["userame"]);
+        $user->setDtNasc($_POST["dtNascimento"]);
+        $user->setTipoUser($_POST["tipoUser"]);
 
         $userRepository = new UserRepository();
         $id = $userRepository->create($user);
@@ -131,6 +135,10 @@ class UserController{
 		$user->setNome($_POST["nome"]);
 		$user->setTelefone($_POST["telefone"]);
 		$user->setEmail($_POST["email"]);
+        $user->setSenha($_POST["senha"]);
+        $user->setUsername($_POST["userame"]);
+        $user->setDtNasc($_POST["dtNascimento"]);
+        $user->setTipoUser($_POST["tipoUser"]);
 
         $userRepository = new UserRepository();
         //print_r($user);

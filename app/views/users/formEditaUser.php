@@ -34,6 +34,9 @@
 		<br>
 		
 		Senha: <input type="text" name="senha" value="<?= $user->getSenha(); ?>">
+		<br>
+
+		Tipo de Uusário: <input type="text" name="tipo de usuário" value="<?= $user->getTipoUser(); ?>">
 		
 		<p/>
 		<input type="submit" value="Atualizar">

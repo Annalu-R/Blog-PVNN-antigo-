@@ -23,6 +23,8 @@
 	<p/>
 	Senha: <input type="text" name="senha">
 	<p/>
+	Tipo de Usuário: <input type="text" name="tipo de usuário">
+	<p/>
 	<input type="submit" value="Cadastrar">
 	<input type="reset" value="Limpar">
 </form>		

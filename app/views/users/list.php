@@ -18,23 +18,23 @@
 	//$caminho = __DIR__ . "/../helpers/mensagem.php";
 	//print_r($caminho); 
 ?>
-    <h1>Clientes</h1>
+    <h1>Usuários</h1>
     <ul>
-        <?php foreach($data['clientes'] as $cli): ?>
+        <?php foreach($data['usuarios'] as $user): ?>
 
             <li>
-                <?= $cli['id'] ?> - 
-                <?= $cli['nome'] ?> - 
-                <?= $cli['telefone'] ?> - 
-                <?= $cli['email'] ?> - 
-                [ <a href="./ClienteController.php?action=edit&id=<?= $cli['id'] ?>">Editar</a> ] 
-                [ <a href="javascript:confirmarExclusaoCliente('<?= $cli['nome'] ?>', <?= $cli['id'] ?>)">Excluir</a> ]
+                <?= $user['id'] ?> - 
+                <?= $user['nome'] ?> - 
+                <?= $user['telefone'] ?> - 
+                <?= $user['email'] ?> - 
+                [ <a href="./UserController.php?action=edit&id=<?= $user['id'] ?>">Editar</a> ] 
+                [ <a href="javascript:confirmarExclusaoUser('<?= $user['nome'] ?>', <?= $user['id'] ?>)">Excluir</a> ]
             </li>             
         <?php endforeach; ?>
     </ul>
 
     <p>
-    [ <a href="./ClienteController.php?action=loadFormNew">Cadastrar novo</a> ]
+    [ <a href="./UserController.php?action=loadFormNew">Cadastrar novo</a> ]
     
 </body>
 </html>
