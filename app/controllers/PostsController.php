@@ -4,11 +4,11 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require_once __DIR__ . "/../repository/UserRepository.php";
+require_once __DIR__ . "/../repository/PostsRepository.php";
 
-$cUsuario = new UserController();
+$cPosts = new PostsController();
 
-class UserController{
+class PostsController{
 
 	function __construct(){
 		
@@ -54,23 +54,23 @@ class UserController{
 
     private function create(){
         
-        $cUsuario = new UserModel();
-        // $user->setNome("aaa");
-        // $user->setTelefone("123213");
-        // $user->setEmail("asd@asd");
+        $cPosts = new PostsModel();
+        // $posts->setNome("aaa");
+        // $posts->setTelefone("123213");
+        // $posts->setEmail("asd@asd");
 
-		$user->setNome($_POST["nome"]);
-		$user->setTelefone($_POST["telefone"]);
-		$user->setEmail($_POST["email"]);
-        $user->setSenha($_POST["senha"]);
-        $user->setUsername($_POST["userame"]);
-        $user->setDtNasc($_POST["dtNascimento"]);
-        $user->setTipoUser($_POST["tipoUser"]);
+		$posts->setAutor($_POST["autor"]);
+		$posts->setTexto($_POST["texto"]);
+		$posts->setComent($_POST["comentario"]);
+        $posts->setLikes($_POST["likes"]);
+        $posts->setTpPosts($_POST["tipoPostagem"]);
+        $posts->setLivro($_POST["livro"]);
+   
 
-        $userRepository = new UserRepository();
-        $id = $userRepository->create($user);
+        $postsRepository = new PostsRepository();
+        $idPosts = $postsRepository->create($posts);
 
-        if($id){
+        if($idPosts){
 			$msg = "Registro inserido com sucesso.";
 		}else{
 			$msg = "Erro ao inserir o registro no banco de dados.";
@@ -80,37 +80,37 @@ class UserController{
     }
 
     private function loadFormNew(){
-        $this->loadView("users/formCadastroUser.php", null,"teste");
+        $this->loadView("posts/formCadastroPosts.php", null,"teste");
     }    
 
     private function findAll(string $msg = null){
         
-        $userRepository = new UserRepository();
+        $postsRepository = new PostsRepository();
 
-        $user = $userRepository->findAll();
+        $posts = $postsRepository->findAll();
 
-        $data['titulo'] = "listar usuários";
-        $data['user'] = $user;
+        $data['titulo'] = "listar posts";
+        $data['posts'] = $posts;
 
-        $this->loadView("users/list.php", $data, $msg);
+        $this->loadView("posts/list.php", $data, $msg);
     }
 
-    private function findUserById(){
-        $idParam = $_GET['id'];
+    private function findPostById(){
+        $idParam = $_GET['idPosts'];
 
-        $userRepository = new UserRepository();
-        $user = $userRepository->findUserById($idParam);
+        $postsRepository = new PostsRepository();
+        $posts = $postsRepository->findPostById($idParam);
 
         print "<pre>";
-        print_r($user);
+        print_r($posts);
         print "</pre>";
     }
 
-    private function deleteUserById(){
-        $idParam = $_GET['id'];
-        $userRepository = new UserRepository();    
+    private function deletePostById(){
+        $idParam = $_GET['idPosts'];
+        $postsRepository = new PostsRepository();    
 
-        $qt = $userRepository->deleteById($idParam);
+        $qt = $postsRepository->deleteById($idParam);
         if($qt){
 			$msg = "Registro excluído com sucesso.";
 		}else{
@@ -120,29 +120,28 @@ class UserController{
     }
 
     private function edit(){
-        $idParam = $_GET['id'];
-        $userRepository = new UserRepository(); 
-        $user = $userRepository->findUserById($idParam);
-        $data['user'] = $user;
+        $idParam = $_GET['idPosts'];
+        $postsRepository = new PostsRepository(); 
+        $posts = $postsRepositorPost($idParam);
+        $data['posts'] = $posts;
 
-        $this->loadView("users/formEditaUser.php", $data);
+        $this->loadView("posts/formEditaPosts.php", $data);
     }
 
     private function update(){
-        $user = new UserModel();
+        $posts = new PostsModel();
 
-		$user->setId($_GET["id"]);
-		$user->setNome($_POST["nome"]);
-		$user->setTelefone($_POST["telefone"]);
-		$user->setEmail($_POST["email"]);
-        $user->setSenha($_POST["senha"]);
-        $user->setUsername($_POST["userame"]);
-        $user->setDtNasc($_POST["dtNascimento"]);
-        $user->setTipoUser($_POST["tipoUser"]);
+		$posts->setIdPosts($_GET["idPosts"]);
+		$posts->setAutor($_POST["autor"]);
+		$posts->setTexto($_POST["texto"]);
+		$posts->setComent($_POST["comentarios"]);
+        $posts->setLikes($_POST["likes"]);
+        $posts->setTpPosts($_POST["tipoPostagem"]);
+        $posts->setLivro($_POST["livro"]);
 
-        $userRepository = new UserRepository();
-        //print_r($user);
-        $atualizou = $userRepository->update($user);
+        $postsRepository = new PostsRepository();
+        //print_r($posts);
+        $atualizou = $postsRepository->update($posts);
         
         if($atualizou){
 			$msg = "Registro atualizado com sucesso.";
