@@ -25,10 +25,10 @@
                 $prepare->bindValue(":livro", $posts->getLivro());
                 $prepare->execute();
                 
-                return $this->conn->lastInsertId();
+                return $this->conn->lastInsertIdPosts();
                 
             } catch(Exception $e) {
-                    print("Erro ao inserir cliente no banco de dados");
+                    print("Erro ao inserir postagem no banco de dados");
             }
         }
 
@@ -39,8 +39,8 @@
             return $posts;
         }
 
-        public function findPostById(int $id) {
-            $query = "SELECT * FROM postagens WHERE id = ?";
+        public function findPostByIdPosts(int $idPosts) {
+            $query = "SELECT * FROM postagens WHERE idPosts = ?";
             $prepare = $this->conn->prepare($query);
             $prepare->bindParam(1, $id, PDO::PARAM_INT);
 
@@ -53,7 +53,7 @@
         }
 
         public function update(PostsModel $posts) : bool {
-            $query = "UPDATE postagens SET autor = ?, texto = ?, comentarios = ?, likes = ?, tipoPostagem = ?, livro = ? WHERE id = ?";
+            $query = "UPDATE postagens SET autor = ?, texto = ?, comentarios = ?, likes = ?, tipoPostagem = ?, livro = ? WHERE idPost = ?";
             $prepare = $this->conn->prepare($query);
             $prepare->bindValue(1, $posts->getAutor());
             $prepare->bindValue(2, $posts->getTexto());
@@ -68,10 +68,10 @@
             return $result;
         }
 
-        public function deleteById( int $id) : int {
-            $query = "DELETE FROM postagens WHERE id = :id";
+        public function deleteByIdPost( int $idPosts) : int {
+            $query = "DELETE FROM postagens WHERE idPosts = :idPosts";
             $prepare = $this->conn->prepare($query);
-            $prepare->bindValue(":id", $id);
+            $prepare->bindValue(":idPosts", $idPosts);
             $prepare->execute();
             $result = $prepare->rowCount();
             //var_dump($result);

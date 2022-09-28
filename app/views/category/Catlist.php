@@ -18,26 +18,23 @@
 	//$caminho = __DIR__ . "/../helpers/mensagem.php";
 	//print_r($caminho); 
 ?>
-    <h1>Posts</h1>
+    <h1> Categorias </h1>
     <ul>
-        <?php foreach($data['postagens'] as $posts): ?>
+        <?php foreach($data['categorias'] as $cat): ?>
 
             <li>
-                <?= $posts['idPosts'] ?> - 
-                <?= $posts['autor'] ?> - 
-                <?= $posts['texto'] ?> - 
-                <?= $posts['comentarios'] ?> - 
-                <?= $posts['likes'] ?> - 
-                <?= $posts['tipoPostagem'] ?> - 
-                <?= $posts['livro'] ?> - 
-                [ <a href="./PostsController.php?action=edit&idPosts=<?= $posts['idPosts'] ?>">Editar</a> ] 
-                [ <a href="javascript:confirmarExclusaoPosts('<?= $posts['autor'] ?>', <?= $posts['idPosts'] ?>)">Excluir</a> ]
+                <?= $cat['idCat'] ?> - 
+                <?= $cat['tag'] ?> - 
+                <?= $cat['tipo'] ?> - 
+            
+                [ <a href="./CatController.php?action=edit&idCat=<?= $cat['idCat'] ?>">Editar</a> ] 
+                [ <a href="javascript:confirmarExclusaoCat('<?= $cat['tag'] ?>', <?= $cat['idCat'] ?>)">Excluir</a> ]
             </li>             
         <?php endforeach; ?>
     </ul>
 
     <p>
-    [ <a href="./PostsController.php?action=loadFormNew">Cadastrar novo</a> ]
+    [ <a href="./CatController.php?action=loadFormNew">Cadastrar novo</a> ]
     
 </body>
 </html>
