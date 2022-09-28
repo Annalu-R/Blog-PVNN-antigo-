@@ -45,6 +45,7 @@ class UserController{
         $caminho = __DIR__ . "/../views/" . $path;
         // echo("msg=");
         // print_r($msg);
+ 
         if(file_exists($caminho)){
              require $caminho;
         } else {
@@ -54,16 +55,16 @@ class UserController{
 
     private function create(){
         
-        $cUsuario = new UserModel();
+        $user = new UserModel();
         // $user->setNome("aaa");
         // $user->setTelefone("123213");
         // $user->setEmail("asd@asd");
-
+//print_r ($_POST["nome"]);
 		$user->setNome($_POST["nome"]);
 		$user->setTelefone($_POST["telefone"]);
 		$user->setEmail($_POST["email"]);
         $user->setSenha($_POST["senha"]);
-        $user->setUsername($_POST["userame"]);
+        $user->setUsername($_POST["username"]);
         $user->setDtNasc($_POST["dtNascimento"]);
         $user->setTipoUser($_POST["tipoUser"]);
 
@@ -90,9 +91,9 @@ class UserController{
         $user = $userRepository->findAll();
 
         $data['titulo'] = "listar usuários";
-        $data['user'] = $user;
+        $data['usuarios'] = $user;
 
-        $this->loadView("users/list.php", $data, $msg);
+        $this->loadView("users/Userlist.php", $data, $msg);
     }
 
     private function findUserById(){

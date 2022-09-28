@@ -42,7 +42,7 @@ class CatController{
     }
 
     public function loadView(string $path, array $data = null, string $msg = null){
-        $caminho = __DIR__ . "/../views/" . $path;
+        $caminho = __DIR__ . "/../views/category" . $path;
         // echo("msg=");
         // print_r($msg);
         if(file_exists($caminho)){

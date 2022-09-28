@@ -25,8 +25,11 @@
             <li>
                 <?= $user['id'] ?> - 
                 <?= $user['nome'] ?> - 
-                <?= $user['telefone'] ?> - 
                 <?= $user['email'] ?> - 
+                <?= $user['senha'] ?> - 
+                <?= $user['username'] ?> -
+                <?= $user['dtNascimento'] ?> -
+                <?= $user['tipoUser'] ?> -
                 [ <a href="./UserController.php?action=edit&id=<?= $user['id'] ?>">Editar</a> ] 
                 [ <a href="javascript:confirmarExclusaoUser('<?= $user['nome'] ?>', <?= $user['id'] ?>)">Excluir</a> ]
             </li>             

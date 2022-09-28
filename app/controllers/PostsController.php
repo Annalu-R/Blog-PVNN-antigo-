@@ -42,7 +42,7 @@ class PostsController{
     }
 
     public function loadView(string $path, array $data = null, string $msg = null){
-        $caminho = __DIR__ . "/../views/" . $path;
+        $caminho = __DIR__ . "/../views/posts" . $path;
         // echo("msg=");
         // print_r($msg);
         if(file_exists($caminho)){
@@ -92,7 +92,7 @@ class PostsController{
         $data['titulo'] = "listar posts";
         $data['posts'] = $posts;
 
-        $this->loadView("posts/list.php", $data, $msg);
+        $this->loadView("posts/Postslist.php", $data, $msg);
     }
 
     private function findPostById(){

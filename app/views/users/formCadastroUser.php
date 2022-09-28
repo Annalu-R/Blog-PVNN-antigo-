@@ -9,22 +9,22 @@
 <body>
 
 <h2>Cadastro de usuários</h2>
-<p/>
+<p>
 <form action="./UserController.php?action=create" method="POST">
 	Nome: <input type="text" name="nome">
 	<br>
 	Telefone: <input type="text" name="telefone">
 	<br>
 	Email: <input type="text" name="email">
-	<p/>
-	Data de nascimento: <input type="text" name="data de nascimento">
-	<p/>
+	<br>
+	Data de nascimento: <input type="text" name="dtNascimento">
+	<br>
 	Username: <input type="text" name="username">
-	<p/>
+	<br>
 	Senha: <input type="text" name="senha">
-	<p/>
-	Tipo de Usuário: <input type="text" name="tipo de usuário">
-	<p/>
+	<br>
+	Tipo de Usuário: <input type="text" name="tipoUser">
+	<br>
 	<input type="submit" value="Cadastrar">
 	<input type="reset" value="Limpar">
 </form>		

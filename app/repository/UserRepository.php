@@ -14,7 +14,7 @@
 
         public function create(UserModel $user) : int {
             try {
-                $query = "INSERT INTO usuarios (nome, telefone, email, senha, username, dtNascimento, tipoUser) VALUES (:nome, :fone, :email, :senha, :username, :dtNascimento, :tipoUser)";
+                $query = "INSERT INTO usuarios (nome, telefone, email, senha, username, dtNascimento, tipoUsuario) VALUES (:nome, :fone, :email, :senha, :username, :dtNascimento, :tipoUser)";
                 $prepare = $this->conn->prepare($query);
 
                 $prepare->bindValue(":nome", $user->getNome());
@@ -29,6 +29,7 @@
                 return $this->conn->lastInsertId();
                 
             } catch(Exception $e) {
+                
                     print("Erro ao inserir cliente no banco de dados");
             }
         }

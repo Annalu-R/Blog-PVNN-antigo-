@@ -16,7 +16,7 @@
 ?>
 <h2>Editar usuário</h2>
 
-<p/>
+<p>
 	<form action="./UserController.php?action=update&id=<?= $user->getId()?>" method="POST">
 		Nome: <input type="text" name="nome" value="<?= $user->getNome(); ?>">
 		
@@ -30,15 +30,15 @@
 		Username: <input type="text" name="username" value="<?= $user->getUsername(); ?>">
 		<br>
 		
-		Data de nascimento: <input type="text" name="data de nascimento" value="<?= $user->getDtNasc(); ?>">
+		Data de nascimento: <input type="text" name="dtNascimento" value="<?= $user->getDtNasc(); ?>">
 		<br>
 		
 		Senha: <input type="text" name="senha" value="<?= $user->getSenha(); ?>">
 		<br>
 
-		Tipo de Uusário: <input type="text" name="tipo de usuário" value="<?= $user->getTipoUser(); ?>">
+		Tipo de Uusário: <input type="text" name="tipoUser" value="<?= $user->getTipoUser(); ?>">
 		
-		<p/>
+		<p>
 		<input type="submit" value="Atualizar">
 		<input type="reset" value="Limpar">
 	</form>		
