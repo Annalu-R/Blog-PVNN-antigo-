@@ -62,3 +62,4 @@ class PostsModel {
 	public function setLivro(string $livro){
 		$this->livro = $livro;
 	}
+}
