@@ -24,8 +24,8 @@
 
             <li>
                 <?= $cat['idCat'] ?> - 
-                <?= $cat['tag'] ?> - 
                 <?= $cat['tipo'] ?> - 
+                <?= $cat['tag'] ?> - 
             
                 [ <a href="./CatController.php?action=edit&idCat=<?= $cat['idCat'] ?>">Editar</a> ] 
                 [ <a href="javascript:confirmarExclusaoCat('<?= $cat['tag'] ?>', <?= $cat['idCat'] ?>)">Excluir</a> ]

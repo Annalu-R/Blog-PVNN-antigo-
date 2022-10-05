@@ -14,18 +14,18 @@
 
         public function create(CatModel $cat) : int {
             try {
-                $query = "INSERT INTO categorias (tag, tipo) VALUES (:tag, :tipo)";
+                $query = "INSERT INTO categorias (tipo, tag) VALUES (:tipo, :tag)";
                 $prepare = $this->conn->prepare($query);
 
-                $prepare->bindValue(":tag", $cat->getTag());
                 $prepare->bindValue(":tipo", $cat->getTipo());
-              
+                $prepare->bindValue(":tag", $cat->getTag());
                 $prepare->execute();
                 
                 return $this->conn->lastInsertId();
                 
             } catch(Exception $e) {
-                    print("Erro ao inserir categoria no banco de dados");
+                
+                    print("Erro ao inserir cliente no banco de dados");
             }
         }
 
@@ -50,10 +50,10 @@
         }
 
         public function update(CatModel $cat) : bool {
-            $query = "UPDATE categorias SET tag = ?, tipo = ? WHERE idCat = ?";
+            $query = "UPDATE categorias SET tipo = ?, tag = ? WHERE idCat = ?";
             $prepare = $this->conn->prepare($query);
-            $prepare->bindValue(1, $cat->getTag());
-            $prepare->bindValue(2, $cat->getTipo());
+            $prepare->bindValue(1, $cat->getTipo());
+            $prepare->bindValue(2, $cat->getTag());
             $prepare->bindValue(3, $cat->getIdCat());
             $result = $prepare->execute();
             //$result = $prepare->rowCount();

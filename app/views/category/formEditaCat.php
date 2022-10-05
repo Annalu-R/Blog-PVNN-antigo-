@@ -16,12 +16,12 @@
 ?>
 <h2>Editar categorias </h2>
 
-<p/>
+<p>
 	<form action="./CatController.php?action=update&idCat=<?= $cat->getIdCat()?>" method="POST">
-		Tag: <input type="text" name="tag" value="<?= $cat->getTag(); ?>">
+		Tipo: <input type="text" name="tipo" value="<?= $cat->getTipo(); ?>">
 		
 		<br>
-		Tipo: <input type="text" name="tipo" value="<?= $cat->getTipo(); ?>">
+		Tag: <input type="text" name="tag" value="<?= $cat->getTag(); ?>">
 		
 	
 		<input type="submit" value="Atualizar">

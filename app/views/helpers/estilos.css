@@ -1,5 +1,3 @@
-@CHARSET "utf-8";
-
 html{
 	background: #F7F1FF;
 }
@@ -65,7 +63,7 @@ table.consulta {
 	border-style: outset;
 	border-color: gray;
 	border-collapse: separate;
-	background-color: white;
+	background-color: #F7F1FF;
 }
 
 table.consulta th {

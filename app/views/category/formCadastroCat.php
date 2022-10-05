@@ -9,13 +9,13 @@
 <body>
 
 <h2>Cadastro de categorias</h2>
-<p/>
+<p>
 
 <form action="./CatController.php?action=create" method="POST">
     
-	Tag: <input type="text" name="tag">
-	<br>
 	Tipo: <input type="text" name="tipo">
+	<br>
+	Tag: <input type="text" name="tag">
 	<br>
 	
 	

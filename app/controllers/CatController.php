@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 
 require_once __DIR__ . "/../repository/CatRepository.php";
 
-$cCategoria = new CatController();
+$cat = new CatController();
 
 class CatController{
 
@@ -42,9 +42,10 @@ class CatController{
     }
 
     public function loadView(string $path, array $data = null, string $msg = null){
-        $caminho = __DIR__ . "/../views/category" . $path;
+        $caminho = __DIR__ . "/../views/" . $path;
         // echo("msg=");
         // print_r($msg);
+ 
         if(file_exists($caminho)){
              require $caminho;
         } else {
@@ -54,19 +55,19 @@ class CatController{
 
     private function create(){
         
-        $cCategoria = new CatModel();
+        $cat = new CatModel();
         // $cat->setNome("aaa");
         // $cat->setTelefone("123213");
         // $cat->setEmail("asd@asd");
+//print_r ($_POST["nome"]);
 
+        $cat->setTipo($_POST["tipo"]);
 		$cat->setTag($_POST["tag"]);
-		$cat->setTipo($_POST["tipo"]);
-
 
         $catRepository = new CatRepository();
-        $id = $catRepository->create($cat);
+        $idCat = $catRepository->create($cat);
 
-        if($id){
+        if($idCat){
 			$msg = "Registro inserido com sucesso.";
 		}else{
 			$msg = "Erro ao inserir o registro no banco de dados.";
@@ -86,7 +87,7 @@ class CatController{
         $cat = $catRepository->findAll();
 
         $data['titulo'] = "listar categorias";
-        $data['cat'] = $cat;
+        $data['categorias'] = $cat;
 
         $this->loadView("category/Catlist.php", $data, $msg);
     }
@@ -102,11 +103,11 @@ class CatController{
         print "</pre>";
     }
 
-    private function deleteCatById(){
+    private function deleteCatByIdCat(){
         $idParam = $_GET['idCat'];
         $catRepository = new CatRepository();    
 
-        $qt = $catRepository->deleteCatById($idParam);
+        $qt = $catRepository->deleteCatByIdCat($idParam);
         if($qt){
 			$msg = "Registro excluído com sucesso.";
 		}else{
@@ -130,7 +131,7 @@ class CatController{
 		$cat->setIdCat($_GET["idCat"]);
 		$cat->setTag($_POST["tag"]);
 		$cat->setTipo($_POST["tipo"]);
-		
+
         $catRepository = new CatRepository();
         //print_r($cat);
         $atualizou = $catRepository->update($cat);

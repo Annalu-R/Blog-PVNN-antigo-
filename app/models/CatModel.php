@@ -14,6 +14,14 @@ class CatModel {
 		$this->idCat = $idCat;
 	}	
 	
+	public function getTipo(): string{
+		return $this->tipo;
+	}
+	
+	public function setTipo(string $tipo){
+		$this->tipo = $tipo;
+	}
+
 	public function getTag(): string{
 		return $this->tag;
 	}
@@ -22,13 +30,6 @@ class CatModel {
 		$this->tag = $tag;
 	}
 
-	public function getTipo(): string{
-		return $this->tipo;
-	}
-	
-	public function setTipo(string $tp){
-		$this->tipo = $tp;
-	}
 
 
 }
