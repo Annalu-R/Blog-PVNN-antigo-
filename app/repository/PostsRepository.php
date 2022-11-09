@@ -14,10 +14,11 @@
 
         public function create(PostsModel $posts) : int {
             try {
-                $query = "INSERT INTO postagens (idPosts, autor, texto, comentarios, likes, tipoPostagem, livro) VALUES (:idPosts, :autor, :texto, :comentarios, :likes, :tipoPostagem, :livro)";
+                $query = "INSERT INTO postagens (idPosts, autor, titulo, texto, comentarios, likes, tipoPostagem, livro) VALUES (:idPosts, :autor, :titulo, :texto, :comentarios, :likes, :tipoPostagem, :livro)";
                 $prepare = $this->conn->prepare($query);
 
                 $prepare->bindValue(":autor", $posts->getAutor());
+                $prepare->bindValue(":titulo", $posts->getTitulo());
                 $prepare->bindValue(":texto", $posts->getTexto());
                 $prepare->bindValue(":comentarios", $posts->getComent());
                 $prepare->bindValue(":likes", $posts->getLike());
@@ -53,15 +54,16 @@
         }
 
         public function update(PostsModel $posts) : bool {
-            $query = "UPDATE postagens SET autor = ?, texto = ?, comentarios = ?, likes = ?, tipoPostagem = ?, livro = ? WHERE idPost = ?";
+            $query = "UPDATE postagens SET autor = ?, titulo = ?, texto = ?, comentarios = ?, likes = ?, tipoPostagem = ?, livro = ? WHERE idPost = ?";
             $prepare = $this->conn->prepare($query);
             $prepare->bindValue(1, $posts->getAutor());
-            $prepare->bindValue(2, $posts->getTexto());
-            $prepare->bindValue(3, $posts->getComent());
-            $prepare->bindValue(4, $posts->getLike());
-            $prepare->bindValue(5, $posts->getTpPost());
-            $prepare->bindValue(6, $posts->getLivro());
-            $prepare->bindValue(7, $posts->getIdPosts());
+            $prepare->bindValue(2, $posts->getTitulo());
+            $prepare->bindValue(3, $posts->getTexto());
+            $prepare->bindValue(4, $posts->getComent());
+            $prepare->bindValue(5, $posts->getLike());
+            $prepare->bindValue(6, $posts->getTpPost());
+            $prepare->bindValue(7, $posts->getLivro());
+            $prepare->bindValue(8, $posts->getIdPosts());
             $result = $prepare->execute();
             //$result = $prepare->rowCount();
             //var_dump($result);

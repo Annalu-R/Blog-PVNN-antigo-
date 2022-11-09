@@ -42,7 +42,7 @@ class PostsController{
     }
 
     public function loadView(string $path, array $data = null, string $msg = null){
-        $caminho = __DIR__ . "/../views/posts" . $path;
+        $caminho = __DIR__ . "/../views/admin/posts" . $path;
         // echo("msg=");
         // print_r($msg);
         if(file_exists($caminho)){
@@ -60,6 +60,7 @@ class PostsController{
         // $posts->setEmail("asd@asd");
 
 		$posts->setAutor($_POST["autor"]);
+        $posts->setTitulo($_POST["titulo"]);
 		$posts->setTexto($_POST["texto"]);
 		$posts->setComent($_POST["comentario"]);
         $posts->setLikes($_POST["likes"]);
@@ -89,10 +90,14 @@ class PostsController{
 
         $posts = $postsRepository->findAll();
 
-        $data['titulo'] = "listar posts";
-        $data['posts'] = $posts;
 
-        $this->loadView("posts/Postslist.php", $data, $msg);
+        $data['titulo']    = "listar posts";
+        $data['posts']     = $posts;
+        $data['base_path'] = "http://localhost/Blog-PVNN-main/app/views/assets/admin";
+
+        $this->loadView("/posts.php", $data);
+
+        //$this->loadView("posts/Postslist.php", $data, $msg);
     }
 
     private function findPostById(){
@@ -133,6 +138,7 @@ class PostsController{
 
 		$posts->setIdPosts($_GET["idPosts"]);
 		$posts->setAutor($_POST["autor"]);
+        $posts->setTitulo($_POST["titulo"]);
 		$posts->setTexto($_POST["texto"]);
 		$posts->setComent($_POST["comentarios"]);
         $posts->setLikes($_POST["likes"]);

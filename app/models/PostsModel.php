@@ -3,6 +3,7 @@ class PostsModel {
 	
 	private $idPosts;
 	private $autor;
+	private $titulo;
 	private $texto;
 	private $comentarios;
 	private $likes;
@@ -26,12 +27,20 @@ class PostsModel {
 		$this->autor = $au;
 	}
 
+	public function getTitulo(): string{
+		return $this-$titulo;
+	}
+	
+	public function setTitulo(string $titulo){
+		$this-> titulo = $titulo;
+	}
+
 	public function getTexto(): string{
 		return $this-$texto;
 	}
 	
 	public function setTexto(string $text){
-		$this-$texto = $text;
+		$this-> texto = $text;
 	}
 
 	public function getComent(): string{
