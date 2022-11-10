@@ -16,9 +16,12 @@
 ?>
 <h2>Editar posts</h2>
 
-<p/>
+<p>
 	<form action="./PostsController.php?action=update&idPosts=<?= $posts->getIdPosts()?>" method="POST">
 		Autor: <input type="text" name="autor" value="<?= $posts->getAutor(); ?>">
+		
+		<br>
+		Título: <input type="text" name="titulo" value="<?= $posts->getTitulo(); ?>">
 		
 		<br>
 		Texto: <input type="text" name="texto" value="<?= $posts->getTexto(); ?>">

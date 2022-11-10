@@ -9,22 +9,24 @@
 <body>
 
 <h2>Cadastro de posts</h2>
-<p/>
+<p>
 
 <form action="./PostsController.php?action=create" method="POST">
     
 	Autor: <input type="text" name="autor">
 	<br>
+	Título: <input type="text" name="titulo">
+	<br>
 	Texto: <input type="text" name="texto">
 	<br>
 	Comentários: <input type="text" name="comentarios">
-	<p/>
+	<br>
 	Likes: <input type="text" name="likes">
-	<p/>
+	<br>
 	Tipo de Postagem: <input type="text" name="tipoPostagem">
-	<p/>
+	<br>
 	Livro: <input type="text" name="livro">
-	<p/>
+	<br>
 	
 	<input type="submit" value="Cadastrar">
 	<input type="reset" value="Limpar">

@@ -25,6 +25,7 @@
             <li>
                 <?= $posts['idPosts'] ?> - 
                 <?= $posts['autor'] ?> - 
+                <?= $posts['titulo'] ?> - 
                 <?= $posts['texto'] ?> - 
                 <?= $posts['comentarios'] ?> - 
                 <?= $posts['likes'] ?> - 

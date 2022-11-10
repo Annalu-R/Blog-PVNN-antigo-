@@ -29,7 +29,7 @@
                 <?= $user['senha'] ?> - 
                 <?= $user['username'] ?> -
                 <?= $user['dtNascimento'] ?> -
-                <?= $user['tipoUser'] ?> -
+                <?= $user['tipoUsuario'] ?> -
                 [ <a href="./UserController.php?action=edit&id=<?= $user['id'] ?>">Editar</a> ] 
                 [ <a href="javascript:confirmarExclusaoUser('<?= $user['nome'] ?>', <?= $user['id'] ?>)">Excluir</a> ]
             </li>             
